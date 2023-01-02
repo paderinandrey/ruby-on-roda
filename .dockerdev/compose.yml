@@ -1,0 +1,65 @@
+x-app:
+  &app
+  build:
+    context: .
+    args:
+      RUBY_VERSION: '3.1.2'
+      PG_MAJOR: '14'
+  image: todo-api-dev:1.0.0
+  tmpfs:
+    - /tmp
+
+x-backend:
+  &backend
+  <<: *app
+  stdin_open: true
+  tty: true
+  volumes:
+    - ..:/app:cached
+    - bundle:/usr/local/bundle
+    - history:/usr/local/hist
+    - ./.psqlrc:/root/.psqlrc:ro
+    - ./.bashrc:/root/.bashrc:ro
+  environment:
+    &backend_environment
+    DATABASE_URL: postgres://postgres:postgres@postgres:5432
+    MALLOC_ARENA_MAX: 2
+    WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
+    HISTFILE: /usr/local/hist/.bash_history
+    PSQL_HISTFILE: /usr/local/hist/.psql_history
+    IRB_HISTFILE: /usr/local/hist/.irb_history
+    EDITOR: vi
+  depends_on:
+    postgres:
+      condition: service_healthy
+
+services:
+  runner:
+    <<: *backend
+    command: /bin/bash
+
+  api:
+    <<: *backend
+    command: rackup
+    ports:
+      - '9292:9292'
+
+  postgres:
+    image: postgres:14
+    volumes:
+      - .psqlrc:/root/.psqlrc:ro
+      - postgres:/var/lib/postgresql/data
+      - history:/user/local/hist
+    environment:
+      PSQL_HISTFILE: /user/local/hist/.psql_history
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1
+      interval: 5s
+
+volumes:
+  bundle:
+  history:
+  postgres:
