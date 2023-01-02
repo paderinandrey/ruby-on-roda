@@ -1,0 +1,86 @@
+require:
+  - rubocop-rspec
+  - rubocop-performance
+  - rubocop-thread_safety
+  - rubocop-sequel
+  - rubocop-rake
+
+AllCops:
+  NewCops: enable
+  EnabledByDefault: true
+  TargetRubyVersion: 3.1.2
+  Exclude:
+    - vendor/bundle/**/*
+
+Lint/ConstantResolution:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - "spec/**/*"
+
+Style/StringHashKeys:
+  Exclude:
+    - app.rb
+    - spec/**/*
+
+RSpec/NestedGroups:
+  Max: 5
+
+Layout/LineLength:
+  Max: 125
+  AllowedPatterns: ['(\A|\s)#']
+
+Layout/SpaceBeforeBrackets:
+  Exclude:
+    - "db/migrate/*"
+
+Metrics/BlockLength:
+  Max: 40
+  Exclude:
+    - "spec/**/*"
+    - "app.rb"
+
+Lint/ToJSON:
+  Exclude:
+    - app/serializers/**/*
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/MessageExpectation:
+  Enabled: false
+
+RSpec/StubbedMock:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+Naming/VariableNumber:
+  Enabled: false
+
+Metrics/ClassLength:
+  Exclude:
+    - "app.rb"
+
+Layout/SingleLineBlockChain:
+  Enabled: false
+
+Layout/RedundantLineBreak:
+  Enabled: false
+
+Bundler/GemVersion:
+  Enabled: false
