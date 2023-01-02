@@ -36,6 +36,11 @@ interaction:
     description: Run Api commands
     service: api
     command: rackup
+
+  rubocop:
+    description: Run rubocop
+    service: api
+    command: bundle exec rubocop
     # subcommands:
     #   s:
     #     description: Run Rails server at http://localhost:3000
