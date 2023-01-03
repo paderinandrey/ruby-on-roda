@@ -35,7 +35,7 @@ interaction:
   api:
     description: Run Api commands
     service: api
-    command: rackup
+    command: /bin/bash
 
   rubocop:
     description: Run rubocop

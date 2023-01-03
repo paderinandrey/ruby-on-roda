@@ -24,6 +24,7 @@ x-backend:
     &backend_environment
     DATABASE_URL: postgres://postgres:postgres@postgres:5432
     MALLOC_ARENA_MAX: 2
+    RACK_ENV: development
     WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
     HISTFILE: /usr/local/hist/.bash_history
     PSQL_HISTFILE: /usr/local/hist/.psql_history
