@@ -6,6 +6,6 @@ Container.register_provider(:bcrypt) do
   end
 
   start do
-    BCrypt::Engine.cost = 1 if Container.env == 'test'
+    BCrypt::Engine.cost = 1 if Container.test?
   end
 end

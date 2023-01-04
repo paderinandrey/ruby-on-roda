@@ -5,7 +5,7 @@ Container.register_provider(:logger) do
 
   start do
     logger = Logger.new($stdout)
-    logger.level = Logger::WARN if Container.env == 'test'
+    logger.level = Logger::WARN if Container.test?
 
     register(:logger, logger)
   end

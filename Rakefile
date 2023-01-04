@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
-require_relative './system/application'
+require_relative './system/container'
+require 'dry-validation'
 
 # Enable database component
-Application.start(:database)
+Container.start(:database)
 
 # Enable logger component
-Application.start(:logger)
-
-# Add existing Logger instance to DB.loggers collection
-Application['database'].loggers << Application['logger']
+Container.start(:logger)
 
 migrate =
   lambda do |version|
@@ -17,7 +15,7 @@ migrate =
     Sequel.extension(:migration)
 
     # Perform migrations based on migration files in a specified directory
-    Sequel::Migrator.apply(Application['database'], 'db/migrate', version)
+    Sequel::Migrator.apply(Container['persistance.db'], 'db/migrate', version)
 
     # Dump database schema after migration
     Rake::Task['db:dump'].invoke
@@ -31,25 +29,23 @@ namespace :db do
 
   desc 'Rolling back latest migration'
   task :rollback do |_, _args|
-    current_version = Application['database'].fetch('SELECT * FROM schema_info').first[:version]
+    current_version = Container['persistance.db'].fetch('SELECT * FROM schema_info').first[:version]
 
     migrate.call(current_version - 1)
   end
 
   desc 'Dump database schema to file'
   task :dump do
-    development = Application.env == 'development'
-
-    sh %(pg_dump --schema-only --no-privileges --no-owner -s #{Application['database'].url} > db/structure.sql) if development
+    sh %(pg_dump --schema-only --no-privileges --no-owner -s #{Container['persistance.db'].url} > db/structure.sql) if Container.development?
   end
 
   desc 'Seed database with test data'
   task :seed do
     sh %(ruby db/seeds.rb)
   end
+end
 
-  desc 'Generate project documentation using yard'
-  task :docs do
-    sh %(yard doc *.rb app/ lib/)
-  end
+desc 'Generate project documentation using yard'
+task :docs do
+  sh %(yard doc *.rb app/ lib/)
 end

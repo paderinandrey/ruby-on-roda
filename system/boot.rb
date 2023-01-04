@@ -8,4 +8,4 @@ require 'securerandom'
 
 Container.finalize!
 
-Container['persistance.db'].freeze unless Container.env == 'development'
+Container['persistance.db'].freeze unless Container.development?
