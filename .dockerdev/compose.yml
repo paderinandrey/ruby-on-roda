@@ -41,9 +41,9 @@ services:
 
   api:
     <<: *backend
-    command: rackup
+    command: bundle exec rackup
     ports:
-      - '9292:9292'
+      - 9292:9292
 
   postgres:
     image: postgres:14

@@ -13,6 +13,9 @@ gem 'puma', '~> 6.0'
 # A make-like build utility for Ruby.
 gem 'rake'
 
+# Provides a command line interface for running a Rack-compatible application.
+gem 'rackup'
+
 # Sequel: The Database Toolkit for Ruby.
 gem 'sequel', '>= 5.64'
 
