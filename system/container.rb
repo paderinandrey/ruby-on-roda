@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'dry/system/container'
+require 'dry/system'
 require 'pry'
 require 'zeitwerk'
 

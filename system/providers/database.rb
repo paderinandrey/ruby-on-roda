@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-Container.register_provider(:database) do |container|
+Container.register_provider(:database) do
   prepare { require 'sequel/core' }
 
   start do
-    use :settings
-    use :logger
+    target_container.start :settings
+    target_container.start :logger
 
     database = Sequel.connect(target[:settings].database_url)
     database.loggers << target[:logger]
 
-    container.register('persistance.db', database)
+    register('persistance.db', database)
   end
 end
