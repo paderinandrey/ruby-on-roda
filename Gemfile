@@ -38,7 +38,7 @@ gem 'dry-validation'
 gem 'roda-enhanced_logger'
 
 # Organize your code into reusable components.
-gem 'dry-system', '1.0.1'
+gem 'dry-system', '0.25'
 
 # A toolkit of support libraries and Ruby core extensions extracted from the Railsframework.
 gem 'activesupport'
@@ -51,6 +51,9 @@ gem 'timecop'
 
 # Ruby internationalization and localization (i18n) solution.
 gem 'i18n'
+
+# Thread-safe code loader
+gem 'zeitwerk'
 
 group :development, :test do
   # A library for setting up Ruby objects as test data.

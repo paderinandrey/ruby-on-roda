@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-require_relative 'application'
+require_relative 'container'
 
+require 'dry-validation'
 require 'pry'
 require 'securerandom'
-require 'dry-validation'
 
-Application.finalize!
+Container.finalize!
 
-Application['database'].loggers << Application['logger']
-Application['database'].freeze unless Application.env == 'development'
+Container['persistance.db'].freeze unless Container.env == 'development'

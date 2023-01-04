@@ -84,3 +84,6 @@ Layout/RedundantLineBreak:
 
 Bundler/GemVersion:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
