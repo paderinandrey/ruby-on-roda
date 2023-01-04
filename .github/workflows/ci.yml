@@ -41,7 +41,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Analyze with RuboCop
-        run: bundle exec RuboCop
+        run: bundle exec rubocop
 
       - name: Analyze with bundler audit
         run: |
