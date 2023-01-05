@@ -74,7 +74,7 @@ interaction:
   psql:
     description: Run Postgres psql console
     service: postgres
-    default_args: productive_development
+    # default_args: productive_development
     command: psql -h postgres -U postgres
 
 provision:
