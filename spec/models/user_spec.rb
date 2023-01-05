@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-describe User, type: :model do
+describe User do
   describe 'email presence validation' do
-    let(:user) { build(:user, email: email) }
+    let(:user) { build(:user, email:) }
 
     before { user.valid? }
 
@@ -20,13 +20,13 @@ describe User, type: :model do
       let(:email) { 'test@user.com' }
 
       it 'does not add error to the :email field' do
-        expect(user.errors[:email]).to eq nil
+        expect(user.errors[:email]).to be_nil
       end
     end
   end
 
   describe 'email format validation' do
-    let(:user) { build(:user, email: email) }
+    let(:user) { build(:user, email:) }
 
     before { user.valid? }
 
@@ -42,13 +42,13 @@ describe User, type: :model do
       let(:email) { 'test@user.com' }
 
       it 'does not add error to the :email field' do
-        expect(user.errors[:email]).to eq nil
+        expect(user.errors[:email]).to be_nil
       end
     end
   end
 
   describe 'email uniqueness validation' do
-    let(:user) { build(:user, email: email) }
+    let(:user) { build(:user, email:) }
 
     before do
       create(:user, email: 'test@user.com')
@@ -59,7 +59,7 @@ describe User, type: :model do
       let(:email) { 'test_2@user.com' }
 
       it 'does not add error to the :email field' do
-        expect(user.errors[:email]).to eq nil
+        expect(user.errors[:email]).to be_nil
       end
     end
 
@@ -73,12 +73,12 @@ describe User, type: :model do
   end
 
   describe 'password validation' do
-    let(:user) { build(:user, password: password, password_confirmation: password_confirmation) }
+    let(:user) { build(:user, password:, password_confirmation:) }
 
     before { user.valid? }
 
     context 'when is blank' do
-      let(:password) { nil }
+      let(:password)              { nil }
       let(:password_confirmation) { nil }
 
       it 'adds errors to the :password field' do
@@ -91,7 +91,7 @@ describe User, type: :model do
       let(:password_confirmation) { 'password' }
 
       it 'does not add error to the :password field' do
-        expect(user.errors[:password]).to eq nil
+        expect(user.errors[:password]).to be_nil
       end
     end
 
@@ -106,7 +106,7 @@ describe User, type: :model do
   end
 
   describe 'authentication_token presence validation' do
-    let(:user) { build(:user, authentication_token: authentication_token) }
+    let(:user) { build(:user, authentication_token:) }
 
     before { user.valid? }
 
@@ -122,13 +122,13 @@ describe User, type: :model do
       let(:authentication_token) { 'test' }
 
       it 'does not add error to the :authentication_token field' do
-        expect(user.errors[:authentication_token]).to eq nil
+        expect(user.errors[:authentication_token]).to be_nil
       end
     end
   end
 
   describe 'authentication_token uniqueness validation' do
-    let(:user) { build(:user, authentication_token: authentication_token) }
+    let(:user) { build(:user, authentication_token:) }
 
     before do
       create(:user, authentication_token: 'test')
@@ -139,7 +139,7 @@ describe User, type: :model do
       let(:authentication_token) { 'test_2' }
 
       it 'does not add error to the :authentication_token field' do
-        expect(user.errors[:authentication_token]).to eq nil
+        expect(user.errors[:authentication_token]).to be_nil
       end
     end
 
@@ -165,7 +165,7 @@ describe User, type: :model do
 
     context 'when password is not valid' do
       it 'returns nil' do
-        expect(user.authenticate('test')).to eq nil
+        expect(user.authenticate('test')).to be_nil
       end
     end
 
