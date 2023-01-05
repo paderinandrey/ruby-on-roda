@@ -3,6 +3,8 @@
 class User < Sequel::Model
   plugin :secure_password
 
+  one_to_many :todos
+
   def validate
     super
 

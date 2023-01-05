@@ -87,3 +87,6 @@ Bundler/GemVersion:
 
 Style/Documentation:
   Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
