@@ -15,6 +15,7 @@ class Container < Dry::System::Container
       dir.memoize = true
       dir.namespaces.add('models', key: nil, const: nil)
       dir.namespaces.add('serializers', key: nil, const: nil)
+      dir.namespaces.add('params', key: nil, const: nil)
     end
   end
 
