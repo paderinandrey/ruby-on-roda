@@ -14,6 +14,7 @@ class Container < Dry::System::Container
     config.component_dirs.add('app') do |dir|
       dir.memoize = true
       dir.namespaces.add('models', key: nil, const: nil)
+      dir.namespaces.add('serializers', key: nil, const: nil)
     end
   end
 
