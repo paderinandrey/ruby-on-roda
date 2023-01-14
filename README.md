@@ -1,6 +1,6 @@
-# todo-api
-
 [![Actions Status](https://github.com/paderinandrey/ruby-on-roda/workflows/Build/badge.svg)](https://github.com/paderinandrey/ruby-on-roda/actions)
+
+# todo-api
 
 JSON API for todo project built with Roda + Sequel.
 
