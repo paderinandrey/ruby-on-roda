@@ -16,6 +16,7 @@ class Container < Dry::System::Container
       dir.namespaces.add('models', key: nil, const: nil)
       dir.namespaces.add('serializers', key: nil, const: nil)
       dir.namespaces.add('params', key: nil, const: nil)
+      dir.namespaces.add('services', key: nil, const: nil)
     end
   end
 
