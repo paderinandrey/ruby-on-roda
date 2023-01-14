@@ -1,4 +1,4 @@
-name: Continious integration
+name: Build
 on: push
 
 jobs:
