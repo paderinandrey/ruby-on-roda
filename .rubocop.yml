@@ -90,3 +90,9 @@ Style/Documentation:
 
 Style/DocumentationMethod:
   Enabled: false
+
+RSpec/Rails/HaveHttpStatus:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 10

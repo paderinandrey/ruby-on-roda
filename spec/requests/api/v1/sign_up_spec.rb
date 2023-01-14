@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'POST /api/v1/sign_up', type: :request do
+describe 'POST /api/v1/sign_up' do
   context 'when request contains incorrectly formatted params' do
     before { post 'api/v1/sign_up' }
 
