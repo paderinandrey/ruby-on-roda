@@ -136,7 +136,7 @@ GEM
       syntax_tree (>= 4.0.2, < 5.0.0)
     ruby-progressbar (1.11.0)
     sequel (5.64.0)
-    sequel_pg (1.17.0)
+    sequel_pg (1.17.1)
       pg (>= 0.18.0, != 1.2.0)
       sequel (>= 4.38.0)
     sequel_secure_password (0.2.15)
