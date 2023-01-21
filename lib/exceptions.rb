@@ -10,4 +10,7 @@ module Exceptions
       super(message)
     end
   end
+
+  class InvalidEmailOrPassword < StandardError
+  end
 end
