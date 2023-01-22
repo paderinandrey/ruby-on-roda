@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'POST /api/v1/login', type: :request do
+describe 'POST /api/v1/login' do
   context 'when request contains incorrectly formatted params' do
     before { post '/api/v1/login' }
 
