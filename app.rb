@@ -77,6 +77,13 @@ class App < Roda
 
           response.write(nil)
         end
+
+        r.post('refresh_token') do
+          Users::UpdateAuthenticationToken.new(user: current_user).call
+          tokens = AuthorizationTokensGenerator.new(user: current_user).call
+
+          TokensSerializer.new(tokens:).render
+        end
       end
     end
   end
