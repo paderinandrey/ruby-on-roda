@@ -20,6 +20,9 @@ class App < Roda
     elsif e.instance_of?(Sequel::ValidationFailed)
       error_object = e.model.errors
       response.status = 422
+    elsif e.instance_of?(ActiveSupport::MessageVerifier::InvalidSignature)
+      error_object = { error: I18n.t('invalid_authorization_token') }
+      response.status = 401
     elsif e.instance_of?(Exceptions::InvalidEmailOrPassword)
       error_object = { error: I18n.t('invalid_email_or_password') }
       response.status = 401
@@ -40,6 +43,16 @@ class App < Roda
 
   plugin :all_verbs
 
+  def current_user
+    return @current_user if @current_user
+
+    purpose = request.url.include?('refresh_token') ? :refresh_token : :access_token
+    @current_user = AuthorizationTokenValidator.new(
+      authorization_token: env['HTTP_AUTHORIZATION'],
+      purpose:
+    ).call
+  end
+
   route do |r|
     r.on('api') do
       r.on('v1') do
@@ -57,6 +70,12 @@ class App < Roda
           tokens = AuthorizationTokensGenerator.new(user:).call
 
           UserSerializer.new(user:, tokens:).render
+        end
+
+        r.delete('logout') do
+          Users::UpdateAuthenticationToken.new(user: current_user).call
+
+          response.write(nil)
         end
       end
     end
