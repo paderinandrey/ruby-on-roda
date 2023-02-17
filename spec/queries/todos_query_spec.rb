@@ -2,47 +2,95 @@
 
 require 'spec_helper'
 
-describe TodosParams do
+describe TodosQuery do
   describe '#call' do
-    context 'when params are invalid' do
+    let!(:todo)   { create(:todo)                                            }
+    let(:todos)   { described_class.new(dataset: Todo, params: params).call  }
+    let(:dataset) { instance_double(Sequel::Postgres::Dataset)               }
+
+    context 'when @params does not have any filters' do
+      let(:params) { {} }
+
       before do
-        expect(Exceptions::InvalidParamsError)
-          .to receive(:new)
-          .with(object, I18n.t('invalid_params'))
-          .and_return(Exceptions::InvalidParamsError.new(object, I18n.t('invalid_params')))
+        expect(Todo)
+          .to receive(:order)
+          .with(Sequel.desc(:created_at))
+          .and_return(dataset)
+
+        expect(dataset)
+          .to receive(:all)
+          .and_return([todo])
       end
 
-      let(:params) do
-        {
-          direction: 'invalid',
-          sort: 'invalid'
-        }
-      end
-
-      let(:object) do
-        {
-          direction: ['must be one of: desc, asc'],
-          sort: ['must be one of: name, description, created_at, updated_at']
-        }
-      end
-
-      it 'raises InvalidParamsError' do
-        expect { described_class.new.permit!(params) }.to raise_error(an_instance_of(Exceptions::InvalidParamsError))
+      it 'returns whole dataset records' do
+        expect(todos).to eq [todo]
       end
     end
 
-    context 'when params are valid' do
-      let(:params) do
-        {
-          search_by_name: 'milk',
-          search_by_description: 'buy milk',
-          sort: 'name',
-          direction: 'desc'
-        }
+    context 'when @params[:search_by_name] is present' do
+      let(:params) { { search_by_name: 'milk' } }
+
+      before do
+        expect(Todo)
+          .to receive(:search_by_name)
+          .with(params[:search_by_name])
+          .and_return(dataset)
+
+        expect(dataset)
+          .to receive(:order)
+          .with(Sequel.desc(:created_at))
+          .and_return(dataset)
+
+        expect(dataset)
+          .to receive(:all)
+          .and_return([todo])
       end
 
-      it 'returns validated params' do
-        expect(described_class.new.permit!(params)).to eq params
+      it 'returns filtered todos' do
+        expect(todos).to eq [todo]
+      end
+    end
+
+    context 'when @params[:search_by_description] is present' do
+      let(:params) { { search_by_description: 'buy milk' } }
+
+      before do
+        expect(Todo)
+          .to receive(:search_by_description)
+          .with(params[:search_by_description])
+          .and_return(dataset)
+
+        expect(dataset)
+          .to receive(:order)
+          .with(Sequel.desc(:created_at))
+          .and_return(dataset)
+
+        expect(dataset)
+          .to receive(:all)
+          .and_return([todo])
+      end
+
+      it 'returns filtered todos' do
+        expect(todos).to eq [todo]
+      end
+    end
+
+    context 'when @params[:sort] and @params[:direction] are present' do
+      let(:params) { { sort: 'name', direction: 'asc' } }
+
+      before do
+        expect(Todo)
+          .to receive(:order)
+          .with(Sequel.asc(:name))
+          .and_return(dataset)
+
+        expect(dataset)
+          .to receive(:all)
+          .and_return([todo])
+      end
+
+      it 'returns ordered todos' do
+        expect(todos).to eq [todo]
       end
     end
   end
