@@ -13,6 +13,10 @@ class App < Roda
   end
 
   plugin :symbol_matchers
+
+  # Validate UUID format.
+  symbol_matcher :uuid, Constants::UUID_REGEX
+
   plugin :error_handler do |e|
     if e.instance_of?(Exceptions::InvalidParamsError)
       error_object = e.object
@@ -26,6 +30,9 @@ class App < Roda
     elsif e.instance_of?(Exceptions::InvalidEmailOrPassword)
       error_object = { error: I18n.t('invalid_email_or_password') }
       response.status = 401
+    elsif e.instance_of?(Sequel::NoMatchingRow)
+      error_object = { error: I18n.t('not_found') }
+      response.status = 404
     else
       error_object = { error: I18n.t('something_went_wrong') }
       response.status = 500
@@ -88,15 +95,25 @@ class App < Roda
         r.on('todos') do
           current_user
 
+          r.on(:uuid) do |id|
+            todo = current_user.todos_dataset.with_pk!(id)
+
+            r.get do
+              TodoSerializer.new(todo:).render
+            end
+          end
+
           r.get do
             todos_params = TodosParams.new.permit!(r.params)
             todos = TodosQuery.new(dataset: current_user.todos_dataset, params: todos_params).call
+
             TodosSerializer.new(todos:).render
           end
 
           r.post do
             todo_params = TodoParams.new.permit!(r.params)
             todo = Todos::Creator.new(user: current_user, attributes: todo_params).call
+
             TodoSerializer.new(todo:).render
           end
         end
