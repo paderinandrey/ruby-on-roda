@@ -4,9 +4,9 @@ require 'spec_helper'
 
 describe TodosQuery do
   describe '#call' do
-    let!(:todo)   { create(:todo)                                            }
-    let(:todos)   { described_class.new(dataset: Todo, params: params).call  }
-    let(:dataset) { instance_double(Sequel::Postgres::Dataset)               }
+    let!(:todo)   { create(:todo)                                    }
+    let(:todos)   { described_class.new(dataset: Todo, params:).call }
+    let(:dataset) { instance_double(Sequel::Postgres::Dataset)       }
 
     context 'when @params does not have any filters' do
       let(:params) { {} }
