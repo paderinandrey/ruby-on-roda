@@ -84,6 +84,16 @@ class App < Roda
 
           TokensSerializer.new(tokens:).render
         end
+
+        r.on('todos') do
+          current_user
+
+          r.get do
+            todos_params = TodosParams.new.permit!(r.params)
+            todos = TodosQuery.new(dataset: current_user.todos_dataset, params: todos_params).call
+            TodosSerializer.new(todos:).render
+          end
+        end
       end
     end
   end
