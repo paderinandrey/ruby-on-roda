@@ -93,6 +93,12 @@ class App < Roda
             todos = TodosQuery.new(dataset: current_user.todos_dataset, params: todos_params).call
             TodosSerializer.new(todos:).render
           end
+
+          r.post do
+            todo_params = TodoParams.new.permit!(r.params)
+            todo = Todos::Creator.new(user: current_user, attributes: todo_params).call
+            TodoSerializer.new(todo:).render
+          end
         end
       end
     end
