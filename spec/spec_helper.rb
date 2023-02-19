@@ -15,7 +15,7 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    DatabaseCleaner[:redis].db = ENV.fetch('REDIS_URL', nil)
+    DatabaseCleaner[:redis].db = ENV.fetch('REDIS_URL', 'redis://172.0.0.1:6379/0')
     DatabaseCleaner[:redis].clean_with(:deletion)
   end
 
