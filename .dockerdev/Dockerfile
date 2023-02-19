@@ -51,7 +51,7 @@ ENV LANG=C.UTF-8 \
 ENV BUNDLE_APP_CONFIG=.bundle
 
 # Uncomment this line if you want to run binstubs without prefixing with `bin/` or `bundle exec`
-# ENV PATH /app/bin:$PATH
+ENV PATH /app/bin:$PATH
 
 # Upgrade RubyGems and install the latest Bundler version
 RUN gem update --system && \
@@ -62,6 +62,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Document that we're going to expose port 3000
-EXPOSE 9292
+EXPOSE 3000
+
 # Use Bash as the default command
-CMD ["/usr/bin/bash"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]

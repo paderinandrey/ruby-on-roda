@@ -88,9 +88,19 @@ group :development, :test do
 
   # Rack::Test is a layer on top of Rack's MockRequest similar to Merb's RequestHelper.
   gem 'rack-test'
+
+  # Rack middleware for blocking & throttling.
+  gem 'rack-attack'
+
+  # Redis is an in-memory database that persists on disk.
+  gem 'redis', '4.2.5'
 end
 
 group :development do
   # An opinionated language server for Ruby
   gem 'ruby-lsp', '~> 0.3.8'
+end
+
+group :test do
+  gem 'database_cleaner-redis'
 end

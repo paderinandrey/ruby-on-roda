@@ -23,15 +23,18 @@ x-backend:
   environment:
     &backend_environment
     DATABASE_URL: postgres://postgres:postgres@postgres:5432
+    REDIS_URL: redis://redis:6379/
     MALLOC_ARENA_MAX: 2
     RACK_ENV: development
-    WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
+    WEB_CONCURRENCY: ${WEB_CONCURRENCY:-0}
     HISTFILE: /usr/local/hist/.bash_history
     PSQL_HISTFILE: /usr/local/hist/.psql_history
     IRB_HISTFILE: /usr/local/hist/.irb_history
     EDITOR: vi
   depends_on:
     postgres:
+      condition: service_healthy
+    redis:
       condition: service_healthy
 
 services:
@@ -41,9 +44,9 @@ services:
 
   api:
     <<: *backend
-    command: bundle exec rackup
+    command: bundle exec puma -C config/puma.rb
     ports:
-      - 9292:9292
+      - 3000:3000
 
   postgres:
     image: postgres:14
@@ -60,7 +63,20 @@ services:
       test: pg_isready -U postgres -h 127.0.0.1
       interval: 5s
 
+  redis:
+    image: redis:7.0-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
 volumes:
   bundle:
   history:
   postgres:
+  redis:

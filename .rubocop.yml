@@ -96,3 +96,8 @@ RSpec/Rails/HaveHttpStatus:
 
 RSpec/ExampleLength:
   Max: 10
+
+Style/IpAddresses:
+  Exclude:
+    - system/providers/rack_attack.rb
+    - spec/requests/api/v1/throttling_spec.rb
