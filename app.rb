@@ -54,7 +54,6 @@ class App < Roda
   def current_user
     return @current_user if @current_user
 
-    binding.pry
     purpose = request.url.include?('refresh_token') ? :refresh_token : :access_token
     @current_user = AuthorizationTokenValidator.new(
       authorization_token: env['HTTP_AUTHORIZATION'],

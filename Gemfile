@@ -102,5 +102,6 @@ group :development do
 end
 
 group :test do
+  # Clean your Redis databases with Database Cleaner.
   gem 'database_cleaner-redis'
 end
