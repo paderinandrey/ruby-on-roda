@@ -9,5 +9,6 @@ Container.register_provider(:settings, from: :dry_system) do
 
   settings do
     setting :database_url, constructor: Core::Types::String.constrained(filled: true)
+    setting :redis_url, constructor: Core::Types::String.constrained(filled: true)
   end
 end
