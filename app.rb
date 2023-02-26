@@ -8,6 +8,7 @@ class App < Roda
   plugin :environments
   plugin :heartbeat
   plugin :json_parser
+  plugin :request_headers
 
   configure :development, :production do
     plugin :enhanced_logger
