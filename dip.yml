@@ -1,7 +1,7 @@
 version: "7.1"
 
 environment:
-  RAILS_ENV: development
+  RACK: development
 
 compose:
   files:
@@ -43,7 +43,8 @@ interaction:
     description: Run tests
     service: runner
     environment:
-      RAILS_ENV: test
+      RACK_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/todo-api-test
     command: bundle exec rspec
 
   psql:
@@ -60,4 +61,3 @@ provision:
   - dip compose down --volumes || true
   - dip compose up -d postgres
   - dip compose up -d redis
-  # - dip bash -c bin/setup

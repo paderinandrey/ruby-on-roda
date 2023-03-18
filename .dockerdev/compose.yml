@@ -22,7 +22,7 @@ x-backend:
     - ./.bashrc:/root/.bashrc:ro
   environment:
     &backend_environment
-    DATABASE_URL: postgres://postgres:postgres@postgres:5432
+    DATABASE_URL: postgres://postgres:postgres@postgres:5432/todo-api-development
     REDIS_URL: redis://redis:6379/
     MALLOC_ARENA_MAX: 2
     RACK_ENV: development
