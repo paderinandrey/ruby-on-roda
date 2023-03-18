@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 ENV['RACK_ENV'] = 'test'
-ENV['DATABASE_URL'] = 'postgres://postgres:postgres@postgres:5432/todo-api-test'
+
+ENV['DATABASE_URL'] =
+  if ENV['CI']
+    'postgres://postgres:postgres@localhost:5432/todo-api-test'
+  else
+    'postgres://postgres:postgres@postgres:5432/todo-api-test'
+  end
 
 require 'database_cleaner/redis'
 
