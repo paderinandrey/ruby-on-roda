@@ -140,7 +140,7 @@ GEM
       sorbet-runtime
       syntax_tree (>= 6, < 7)
     ruby-progressbar (1.13.0)
-    sequel (5.65.0)
+    sequel (5.66.0)
     sequel_pg (1.17.1)
       pg (>= 0.18.0, != 1.2.0)
       sequel (>= 4.38.0)
