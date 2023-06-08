@@ -65,7 +65,7 @@ GEM
     method_source (1.0.0)
     minitest (5.18.0)
     nio4r (2.5.9)
-    oj (3.14.3)
+    oj (3.15.0)
     parallel (1.23.0)
     parser (3.2.2.1)
       ast (~> 2.4.1)
