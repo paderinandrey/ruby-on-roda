@@ -2,7 +2,7 @@
 
 require 'roda'
 
-require_relative './system/boot'
+require_relative 'system/boot'
 
 class App < Roda
   plugin :environments
