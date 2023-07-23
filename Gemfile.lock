@@ -93,7 +93,7 @@ GEM
     redis (4.2.5)
     regexp_parser (2.8.1)
     rexml (3.2.5)
-    roda (3.69.0)
+    roda (3.70.0)
       rack
     roda-enhanced_logger (0.5.0)
       roda (>= 3.19.0)
