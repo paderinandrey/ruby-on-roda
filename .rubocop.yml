@@ -4,6 +4,7 @@ require:
   - rubocop-thread_safety
   - rubocop-sequel
   - rubocop-rake
+  - rubocop-factory_bot
 
 AllCops:
   NewCops: enable
