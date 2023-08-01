@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './system/container'
+require_relative 'system/container'
 require 'dry-validation'
 
 # Enable database component
