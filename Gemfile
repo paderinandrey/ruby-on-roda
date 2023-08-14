@@ -93,7 +93,7 @@ group :development, :test do
   gem 'rack-attack'
 
   # Redis is an in-memory database that persists on disk.
-  gem 'redis', '5.0.6'
+  gem 'redis', '5.0.7'
 end
 
 group :development do
