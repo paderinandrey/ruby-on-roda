@@ -154,7 +154,7 @@ GEM
       syntax_tree (>= 6.1.1, < 7)
       yarp (>= 0.11, < 0.12)
     ruby-progressbar (1.13.0)
-    sequel (5.72.0)
+    sequel (5.73.0)
       bigdecimal
     sequel_pg (1.17.1)
       pg (>= 0.18.0, != 1.2.0)
