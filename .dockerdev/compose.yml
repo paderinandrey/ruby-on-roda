@@ -4,7 +4,7 @@ x-app:
     context: .
     args:
       RUBY_VERSION: '3.1.2'
-      PG_MAJOR: '14'
+      PG_MAJOR: '16'
   image: todo-api-dev:1.0.0
   tmpfs:
     - /tmp
@@ -49,8 +49,9 @@ services:
       - 3000:3000
 
   postgres:
-    image: postgres:14
+    image: postgres:16
     volumes:
+      - ./init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
       - .psqlrc:/root/.psqlrc:ro
       - postgres:/var/lib/postgresql/data
       - history:/user/local/hist

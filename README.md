@@ -39,9 +39,9 @@ This project uses PostgreSQL by default, to setup database for development and t
 
 ## Migrate database
 
-1. To migrate database in development environment use: `rake db:migrate`
-2. To migrate database in test environment use: `RACK_ENV=test rake db:migrate`
-3. To migrate database in production environment use: `RACK_ENV=production rake db:migrate`
+1. To migrate database in development environment use: `be rake db:migrate`
+2. To migrate database in test environment use: `RACK_ENV=test be rake db:migrate`
+3. To migrate database in production environment use: `RACK_ENV=production be rake db:migrate` or `sequel -m db/migrate postgres://postgres:postgres@postgres:5432/todo-api-test`
 
 ## Running the app
 
