@@ -23,7 +23,7 @@ class Container < Dry::System::Container
 
   class << self
     %i[development test production].each do |environment|
-      define_method("#{environment}?") do
+      define_method(:"#{environment}?") do
         env == environment
       end
     end
