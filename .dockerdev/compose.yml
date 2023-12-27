@@ -3,7 +3,7 @@ x-app:
   build:
     context: .
     args:
-      RUBY_VERSION: '3.1.2'
+      RUBY_VERSION: '3.3.0'
       PG_MAJOR: '16'
   image: todo-api-dev:1.0.0
   tmpfs:
