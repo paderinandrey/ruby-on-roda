@@ -23,7 +23,7 @@ GEM
       database_cleaner-core (~> 2.0.0)
       redis
     diff-lcs (1.5.1)
-    dotenv (3.0.2)
+    dotenv (3.1.0)
     drb (2.2.0)
       ruby2_keywords
     dry-auto_inject (1.0.0)
