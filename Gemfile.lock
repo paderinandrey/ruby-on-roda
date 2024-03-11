@@ -68,7 +68,7 @@ GEM
       zeitwerk (~> 2.6)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
-    i18n (1.14.1)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     json (2.7.1)
     language_server-protocol (3.17.0.3)
