@@ -165,7 +165,7 @@ GEM
       sorbet-runtime (>= 0.5.10782)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    sequel (5.79.0)
+    sequel (5.80.0)
       bigdecimal
     sequel_pg (1.17.1)
       pg (>= 0.18.0, != 1.2.0)
