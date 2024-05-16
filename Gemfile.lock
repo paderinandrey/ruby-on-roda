@@ -107,7 +107,8 @@ GEM
     redis-client (0.22.1)
       connection_pool
     regexp_parser (2.9.1)
-    rexml (3.2.6)
+    rexml (3.2.8)
+      strscan (>= 3.0.9)
     roda (3.80.0)
       rack
     roda-enhanced_logger (0.5.0)
@@ -174,6 +175,7 @@ GEM
       bcrypt (>= 3.1, < 4.0)
       sequel (>= 4.1.0, < 6.0)
     sorbet-runtime (0.5.11361)
+    strscan (3.1.0)
     timecop (0.9.8)
     tty-color (0.6.0)
     tty-logger (0.6.0)
