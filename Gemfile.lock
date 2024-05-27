@@ -85,7 +85,7 @@ GEM
     pastel (0.8.0)
       tty-color (~> 0.5)
     pg (1.4.5)
-    prism (0.27.0)
+    prism (0.29.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -160,9 +160,9 @@ GEM
       rubocop (~> 1.0)
     rubocop-thread_safety (0.5.1)
       rubocop (>= 0.90.0)
-    ruby-lsp (0.16.6)
+    ruby-lsp (0.16.7)
       language_server-protocol (~> 3.17.0)
-      prism (>= 0.23.0, < 0.28)
+      prism (>= 0.29.0, < 0.30)
       sorbet-runtime (>= 0.5.10782)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
@@ -174,7 +174,7 @@ GEM
     sequel_secure_password (0.2.15)
       bcrypt (>= 3.1, < 4.0)
       sequel (>= 4.1.0, < 6.0)
-    sorbet-runtime (0.5.11361)
+    sorbet-runtime (0.5.11391)
     strscan (3.1.0)
     timecop (0.9.8)
     tty-color (0.6.0)
@@ -217,7 +217,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-sequel
   rubocop-thread_safety
-  ruby-lsp (~> 0.16.6)
+  ruby-lsp (~> 0.16.7)
   sequel (>= 5.64)
   sequel_pg (>= 1.17)
   sequel_secure_password
