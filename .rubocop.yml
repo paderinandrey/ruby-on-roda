@@ -9,7 +9,7 @@ require:
 AllCops:
   NewCops: enable
   EnabledByDefault: true
-  TargetRubyVersion: 3.1.2
+  TargetRubyVersion: 3.3.0
   Exclude:
     - vendor/bundle/**/*
 
@@ -90,9 +90,6 @@ Style/Documentation:
   Enabled: false
 
 Style/DocumentationMethod:
-  Enabled: false
-
-RSpec/Rails/HaveHttpStatus:
   Enabled: false
 
 RSpec/ExampleLength:

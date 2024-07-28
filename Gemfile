@@ -68,6 +68,9 @@ group :development, :test do
   # A Ruby static code analyzer and formatter, based on the community Ruby style guide.
   gem 'rubocop'
 
+  # Code style checking for factory_bot files.
+  gem 'rubocop-factory_bot', require: false
+
   # An extension of RuboCop focused on code performance checks.
   gem 'rubocop-performance'
 
