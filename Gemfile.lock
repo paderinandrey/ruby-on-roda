@@ -168,7 +168,7 @@ GEM
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
     ruby-progressbar (1.13.0)
-    sequel (5.81.0)
+    sequel (5.82.0)
       bigdecimal
     sequel_pg (1.17.1)
       pg (>= 0.18.0, != 1.2.0)
