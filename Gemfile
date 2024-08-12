@@ -44,7 +44,7 @@ gem 'roda-enhanced_logger'
 gem 'dry-system', '1.0.1'
 
 # A toolkit of support libraries and Ruby core extensions extracted from the Railsframework.
-gem 'activesupport', '~> 7.1.3'
+gem 'activesupport', '~> 7.2.0'
 
 # Plugin that adds BCrypt authentication and password hashing to Sequel models.
 gem 'sequel_secure_password'
