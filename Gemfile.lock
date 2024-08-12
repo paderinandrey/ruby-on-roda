@@ -80,8 +80,8 @@ GEM
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     ostruct (0.6.0)
-    parallel (1.25.1)
-    parser (3.3.4.0)
+    parallel (1.26.2)
+    parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
     pastel (0.8.0)
@@ -111,7 +111,7 @@ GEM
     redis-client (0.22.1)
       connection_pool
     regexp_parser (2.9.2)
-    rexml (3.3.4)
+    rexml (3.3.5)
       strscan
     roda (3.82.0)
       rack
@@ -142,7 +142,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
-    rubocop-ast (1.31.3)
+    rubocop-ast (1.32.0)
       parser (>= 3.3.1.0)
     rubocop-factory_bot (2.26.1)
       rubocop (~> 1.61)
@@ -151,7 +151,7 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (3.0.3)
+    rubocop-rspec (3.0.4)
       rubocop (~> 1.61)
     rubocop-sequel (0.3.4)
       rubocop (~> 1.0)
