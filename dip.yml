@@ -61,3 +61,4 @@ provision:
   - dip compose down --volumes || true
   - dip compose up -d postgres
   - dip compose up -d redis
+  - dip bundle
