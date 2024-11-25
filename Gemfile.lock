@@ -79,7 +79,7 @@ GEM
     logger (1.6.1)
     method_source (1.1.0)
     minitest (5.25.1)
-    nio4r (2.7.3)
+    nio4r (2.7.4)
     oj (3.16.7)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
@@ -95,7 +95,7 @@ GEM
     pry (0.15.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (6.4.3)
+    puma (6.5.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.8)
@@ -201,7 +201,7 @@ DEPENDENCIES
   i18n
   oj
   pry
-  puma (~> 6.4)
+  puma (~> 6.5)
   rack-attack
   rack-test
   rackup
