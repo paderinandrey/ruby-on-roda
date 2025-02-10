@@ -157,7 +157,7 @@ GEM
       rubocop (~> 1.0)
     rubocop-thread_safety (0.6.0)
       rubocop (>= 1.48.1)
-    ruby-lsp (0.23.8)
+    ruby-lsp (0.23.9)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
@@ -172,7 +172,7 @@ GEM
     sequel_secure_password (0.2.15)
       bcrypt (>= 3.1, < 4.0)
       sequel (>= 4.1.0, < 6.0)
-    sorbet-runtime (0.5.11798)
+    sorbet-runtime (0.5.11813)
     timecop (0.9.10)
     tty-color (0.6.0)
     tty-logger (0.6.0)
@@ -219,7 +219,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-sequel
   rubocop-thread_safety
-  ruby-lsp (~> 0.23.8)
+  ruby-lsp (~> 0.23.9)
   sequel (>= 5.64)
   sequel_pg (>= 1.17)
   sequel_secure_password
