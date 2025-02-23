@@ -63,7 +63,7 @@ Container.register_provider(:rack_attack) do
 
     # Allow all requests from localhost.
     Rack::Attack.safelist('allow from localhost') do |req|
-      req.ip == '127.0.0.1' || req.ip == '::1'
+      ['127.0.0.1', '::1'].include?(req.ip)
     end
   end
 end
