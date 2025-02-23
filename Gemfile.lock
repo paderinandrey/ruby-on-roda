@@ -95,7 +95,7 @@ GEM
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (6.5.0)
+    puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.10)
@@ -203,7 +203,7 @@ DEPENDENCIES
   i18n
   oj
   pry
-  puma (~> 6.5)
+  puma (~> 6.6)
   rack-attack
   rack-test
   rackup
