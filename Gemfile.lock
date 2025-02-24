@@ -112,9 +112,9 @@ GEM
     rake (13.2.1)
     rbs (3.8.1)
       logger
-    redis (5.3.0)
+    redis (5.4.0)
       redis-client (>= 0.22.0)
-    redis-client (0.22.2)
+    redis-client (0.23.2)
       connection_pool
     regexp_parser (2.10.0)
     roda (3.88.0)
@@ -215,7 +215,7 @@ DEPENDENCIES
   rack-test
   rackup
   rake
-  redis (= 5.3.0)
+  redis (= 5.4.0)
   roda (>= 3.63)
   roda-enhanced_logger
   rspec
