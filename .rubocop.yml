@@ -1,10 +1,12 @@
 require:
+  - rubocop-factory_bot
+
+plugins:
   - rubocop-rspec
   - rubocop-performance
   - rubocop-thread_safety
   - rubocop-sequel
   - rubocop-rake
-  - rubocop-factory_bot
 
 AllCops:
   NewCops: enable
