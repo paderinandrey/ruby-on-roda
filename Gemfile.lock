@@ -27,7 +27,7 @@ GEM
       database_cleaner-core (~> 2.0.0)
       redis
     diff-lcs (1.5.1)
-    dotenv (3.1.7)
+    dotenv (3.1.8)
     drb (2.2.1)
     dry-auto_inject (1.1.0)
       dry-core (~> 1.1)
