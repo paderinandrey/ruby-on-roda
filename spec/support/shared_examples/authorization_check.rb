@@ -4,7 +4,7 @@ RSpec.shared_examples 'authorization check' do |method, url|
   context 'when Authorization header does not contain token' do
     before { public_send(method, url) }
 
-    include_examples 'unauthorized'
+    it_behaves_like 'unauthorized'
   end
 
   context 'when Authorization header contains invalid token' do
@@ -13,7 +13,7 @@ RSpec.shared_examples 'authorization check' do |method, url|
       public_send(method, url)
     end
 
-    include_examples 'unauthorized'
+    it_behaves_like 'unauthorized'
   end
 
   context 'when user authentication_token is invalid' do
@@ -25,6 +25,6 @@ RSpec.shared_examples 'authorization check' do |method, url|
       public_send(method, url)
     end
 
-    include_examples 'unauthorized'
+    it_behaves_like 'unauthorized'
   end
 end

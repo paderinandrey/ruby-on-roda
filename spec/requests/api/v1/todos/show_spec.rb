@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'GET /api/v1/todos/:id' do
-  include_examples 'authorization check', 'get', '/api/v1/todos/21c9177e-9497-4c86-945b-7d1097c8865f'
+  it_behaves_like 'authorization check', 'get', '/api/v1/todos/21c9177e-9497-4c86-945b-7d1097c8865f'
 
   context 'when Authorization headers contains valid token' do
     let(:token) { access_token(user)   }

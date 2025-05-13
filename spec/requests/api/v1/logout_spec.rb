@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'DELETE /api/v1/logout' do
-  include_examples 'authorization check', 'delete', '/api/v1/logout'
+  it_behaves_like 'authorization check', 'delete', '/api/v1/logout'
 
   context 'when Authorization headers contains valid token' do
     let(:user) { create(:user) }

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 describe 'GET /api/v1/todos' do
-  include_examples 'authorization check', 'get', '/api/v1/todos'
+  it_behaves_like 'authorization check', 'get', '/api/v1/todos'
   context 'when Authorization headers contains valid token' do
     let(:token)   { access_token(user) }
     let(:user)    { create(:user)      }

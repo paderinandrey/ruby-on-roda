@@ -5,7 +5,7 @@ require 'spec_helper'
 describe 'POST /api/v1/refresh_token' do
   let(:user) { create(:user) }
 
-  include_examples 'authorization check', 'post', '/api/v1/refresh_token'
+  it_behaves_like 'authorization check', 'post', '/api/v1/refresh_token'
 
   context 'when Authorization headers contains valid refresh token' do
     let(:update_authentication_token) do
@@ -61,6 +61,6 @@ describe 'POST /api/v1/refresh_token' do
       post '/api/v1/refresh_token'
     end
 
-    include_examples 'unauthorized'
+    it_behaves_like 'unauthorized'
   end
 end
