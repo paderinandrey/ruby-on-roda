@@ -175,7 +175,7 @@ GEM
       sorbet-runtime (>= 0.5.10782)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    sequel (5.92.0)
+    sequel (5.93.0)
       bigdecimal
     sequel_pg (1.17.2)
       pg (>= 0.18.0, != 1.2.0)
