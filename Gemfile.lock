@@ -117,7 +117,7 @@ GEM
     redis-client (0.23.2)
       connection_pool
     regexp_parser (2.10.0)
-    roda (3.92.0)
+    roda (3.93.0)
       rack
     roda-enhanced_logger (0.5.0)
       roda (>= 3.19.0)
