@@ -101,7 +101,7 @@ end
 
 group :development do
   # An opinionated language server for Ruby
-  gem 'ruby-lsp', '~> 0.24.1'
+  gem 'ruby-lsp', '~> 0.24.2'
 end
 
 group :test do
