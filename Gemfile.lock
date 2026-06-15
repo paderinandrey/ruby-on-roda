@@ -83,7 +83,7 @@ GEM
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
-    nio4r (2.7.4)
+    nio4r (2.7.5)
     oj (3.16.12)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
@@ -99,7 +99,7 @@ GEM
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (7.1.0)
+    puma (8.0.2)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.6)
@@ -219,7 +219,7 @@ DEPENDENCIES
   i18n
   oj
   pry
-  puma (~> 7.1)
+  puma (~> 8.0)
   rack-attack
   rack-test
   rackup
