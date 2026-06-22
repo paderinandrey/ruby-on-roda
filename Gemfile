@@ -8,7 +8,7 @@ ruby '3.4.2'
 gem 'roda', '>= 3.63'
 
 # Use Puma as the app server.
-gem 'puma', '~> 7.1'
+gem 'puma', '~> 8.0'
 
 # A make-like build utility for Ruby.
 gem 'rake'
@@ -44,7 +44,7 @@ gem 'roda-enhanced_logger'
 gem 'dry-system', '1.2.4'
 
 # A toolkit of support libraries and Ruby core extensions extracted from the Railsframework.
-gem 'activesupport', '~> 8.0.3'
+gem 'activesupport', '~> 8.1.3'
 
 # Plugin that adds BCrypt authentication and password hashing to Sequel models.
 gem 'sequel_secure_password'
@@ -101,7 +101,7 @@ end
 
 group :development do
   # An opinionated language server for Ruby
-  gem 'ruby-lsp', '~> 0.26.1'
+  gem 'ruby-lsp', '~> 0.26.9'
 end
 
 group :test do
