@@ -94,7 +94,10 @@ GEM
       racc
     pastel (0.8.0)
       tty-color (~> 0.5)
-    pg (1.5.9)
+    pg (1.6.3-aarch64-linux)
+    pg (1.6.3-arm64-darwin)
+    pg (1.6.3-x86_64-darwin)
+    pg (1.6.3-x86_64-linux)
     prism (1.9.0)
     pry (0.15.2)
       coderay (~> 1.1)
@@ -181,7 +184,7 @@ GEM
     securerandom (0.4.1)
     sequel (5.98.0)
       bigdecimal
-    sequel_pg (1.17.2)
+    sequel_pg (1.19.0)
       pg (>= 0.18.0, != 1.2.0)
       sequel (>= 4.38.0)
     sequel_secure_password (0.2.15)
