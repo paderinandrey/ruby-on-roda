@@ -182,7 +182,7 @@ GEM
       rbs (>= 3, < 5)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    sequel (5.98.0)
+    sequel (5.106.0)
       bigdecimal
     sequel_pg (1.19.0)
       pg (>= 0.18.0, != 1.2.0)
