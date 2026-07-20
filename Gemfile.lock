@@ -127,7 +127,7 @@ GEM
     regexp_parser (2.12.0)
     reline (0.6.3)
       io-console (~> 0.5)
-    roda (3.105.0)
+    roda (3.106.0)
       rack
     roda-enhanced_logger (0.5.0)
       roda (>= 3.19.0)
